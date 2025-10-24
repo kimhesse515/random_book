@@ -93,8 +93,11 @@
 
     <script>
         function pickRandom() {
-            const a = ["경제학", " 심리학", "역사학", "철학", "신학", "사회학", "정치학", "법학", "천문학"];
-            const randomIndex = Math.floor(Math.random() * 7);
+            // 수정 1: " 심리학" -> "심리학" (앞 공백 제거)
+            const a = ["경제학", "심리학", "역사학", "철학", "신학", "사회학", "정치학", "법학", "천문학"];
+            
+            // 수정 2: 숫자 7 대신 배열의 실제 길이(a.length)를 사용
+            const randomIndex = Math.floor(Math.random() * a.length);
             const result = a[randomIndex];
             
             const resultElement = document.getElementById('result');
