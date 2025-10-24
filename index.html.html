@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랜덤 학문 선택기</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        #result {
+            font-size: 48px;
+            font-weight: bold;
+            color: #667eea;
+            margin: 40px 0;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        #result.show {
+            transform: scale(1.1);
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .info {
+            margin-top: 30px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎲 랜덤 학문 선택기</h1>
+        <div id="result">?</div>
+        <button onclick="pickRandom()">학문 선택하기</button>
+        <div class="info">
+            버튼을 클릭하면 랜덤으로 학문 분야가 선택됩니다
+        </div>
+    </div>
+
+    <script>
+        function pickRandom() {
+            const a = ["경제학", " 심리학", "역사학", "철학", "신학", "사회학", "정치학", "법학", "천문학"];
+            const randomIndex = Math.floor(Math.random() * 7);
+            const result = a[randomIndex];
+            
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = result;
+            resultElement.classList.remove('show');
+            
+            setTimeout(() => {
+                resultElement.classList.add('show');
+            }, 10);
+        }
+    </script>
+</body>
+</html>
